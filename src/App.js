@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Logo1 from "./Logo1.svg";
+import "./App.css";
+import Firstpage from "./Firstpage.js";
+import HelloPage from "./HelloPage.js";
+import {
+  BrowserRouter as Router,
+  useHistory,
+  Link,
+  Switch,
+  Redirect,
+  Route,
+} from "react-router-dom";
+import { Button } from "react-bulma-components";
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fname: "",
+      lname: "",
+    };
+  }
+  hello = () => {
+    alert("hiiii");
+  };
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+    const { fname, lname } = this.state;
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/" component={HelloPage}></Route>
+          <Route path="/Firstpage" component={Firstpage}></Route>
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;
