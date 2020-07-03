@@ -3,6 +3,7 @@ import "./App.css";
 import Firstpage from "./Firstpage";
 import { Table, Button } from "react-bootstrap";
 import firebase from "./FirebaseConfig";
+import lobby from "./lobby.svg";
 
 import {
   BrowserRouter as Router,
@@ -56,7 +57,7 @@ class Room extends Component {
       ));
 
     return (
-      <div className="div">
+      <div className="div" style={{ backgroundImage: `url(${lobby})` }}>
         <Link to={{ pathname: "/Firstpage", state: [this.state.value] }}>
           <button renderas="button" className="button">
             Create New Game
@@ -64,7 +65,20 @@ class Room extends Component {
         </Link>
         <Table className="table">
           <tr>
-            <td>{projects}</td>
+            <th>Rooms</th> <th>Players Name</th>
+            <th> Action</th>
+          </tr>
+          <tr>
+            <td>1</td> <td>Majdi Ajroud</td>
+            <td>
+              <button>Join</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td> <td>Factory 619</td>
+            <td>
+              <button>Join</button>
+            </td>
           </tr>
         </Table>
       </div>
