@@ -3,6 +3,8 @@ import Logo1 from "./Logo1.svg";
 import "./App.css";
 import Firstpage from "./Firstpage.js";
 import HelloPage from "./HelloPage.js";
+import Room from "./Room.js";
+
 import {
   BrowserRouter as Router,
   useHistory,
@@ -30,6 +32,8 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={HelloPage}></Route>
+          <Route path="/Room" component={Room}></Route>
+
           <Route path="/Firstpage" component={Firstpage}></Route>
         </Switch>
       </Router>

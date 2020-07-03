@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import Logo1 from "./Logo1.svg";
 import "./App.css";
 import Firstpage from "./Firstpage.js";
+import Room from "./Room.js";
+
 import background1 from "./background1.svg";
+import firebase from "./FirebaseConfig";
 
 import {
   BrowserRouter as Router,
@@ -12,7 +15,6 @@ import {
   Redirect,
   Route,
 } from "react-router-dom";
-import { Button } from "react-bulma-components";
 class HelloPage extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +30,23 @@ class HelloPage extends Component {
   }
   hello = () => {
     alert("hiiii");
+  };
+  addRoom = (e) => {
+    e.preventDefault();
+    const db = firebase.firestore();
+    db.settings({
+      timestampsInSnapshots: true,
+    });
+    const userRef = db.collection("/Room").add({
+      value: this.state.value,
+    });
+    this.setState({
+      value: "",
+    });
+    this.props.history.push({
+      pathname: "/Room",
+      state: [this.state.value],
+    });
   };
 
   render() {
@@ -46,8 +65,15 @@ class HelloPage extends Component {
               onChange={this.handleChange}
               placeholder="Player Name: "
             />
-            <Link to={{ pathname: "/Firstpage", state: [this.state.value] }}>
-              <button renderas="button" className="button">
+            <Link
+              onClick={this.addRoom}
+              to={{ pathname: "/Firstpage", state: [this.state.value] }}
+            >
+              <button
+                renderas="button"
+                className="button"
+                onClick={this.addRoom}
+              >
                 Start
               </button>
             </Link>

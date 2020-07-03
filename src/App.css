@@ -48,6 +48,7 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
+
 .text {
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
   color: red;
@@ -59,7 +60,22 @@
   flex-direction: column;
   position: relative;
 }
-
+.table {
+  margin-top: 5%;
+  margin-left: 25%;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #d9ecf8;
+  width: 50%;
+  border: 0;
+  padding: 12px !important;
+  color: #080d0f;
+  font-size: 20px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
 .row {
   display: flex;
   flex-direction: row;

@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import Firstpage from "./Firstpage";
 import App from "./App";
+import Room from "./Room";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
